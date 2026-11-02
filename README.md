@@ -41,14 +41,17 @@ Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, OSArchit
 
 # 4. Información completa de la PC utilizando el comando del Símbolo del Sistema
 Write-Host "`n[+] 4. Información Completa de la PC (Systeminfo):" -ForegroundColor Yellow
-```powershell
+
 ## 🔍 3. Explicación Técnica de las Instrucciones
 
 Cada instrucción dentro del script cumple una función específica dentro del análisis y la seguridad informática:
 
 * **Versión de PowerShell (`$PSVersionTable`):** Consulta una variable automática del sistema que arroja una tabla detallada con la versión exacta de PowerShell, la edición (`Desktop` o `Core`) y la versión de .NET Framework (`CLRVersion`), permitiendo validar la compatibilidad de módulos y entornos de ejecución.
+
 * **Configuración de Permisividad (`Get-ExecutionPolicy -List`):** Evalúa las políticas de ejecución configuradas en los diferentes ámbitos (*scopes*) del sistema (`MachinePolicy`, `UserPolicy`, `Process`, `CurrentUser`, `LocalMachine`). Es un parámetro crítico en seguridad para determinar si el equipo permite la ejecución de scripts sin firmar.
+
 * **Edición del Sistema Operativo (`Get-CimInstance Win32_OperatingSystem`):** Extrae mediante WMI/CIM las propiedades del SO (como `Caption`, `Version`, `OSArchitecture`, `BuildNumber` y `RegisteredUser`), ofreciendo un inventario limpio y estructurado de la plataforma.
+
 * **Información Completa de la PC (`cmd.exe /c "systeminfo"`):** Invoca al Símbolo del Sistema para ejecutar la herramienta nativa `systeminfo`, generando un reporte forense exhaustivo que abarca el tiempo de actividad (*uptime*), memoria RAM disponible, revisiones de actualizaciones de seguridad instaladas (`KBs`), adaptadores de red y el estado de la virtualización (VBS).
 
 ---
