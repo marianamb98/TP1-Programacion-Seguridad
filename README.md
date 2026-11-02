@@ -42,6 +42,8 @@ Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, OSArchit
 # 4. Información completa de la PC utilizando el comando del Símbolo del Sistema
 Write-Host "`n[+] 4. Información Completa de la PC (Systeminfo):" -ForegroundColor Yellow
 
+```
+
 ## 🔍 3. Explicación Técnica de las Instrucciones
 
 Cada instrucción dentro del script cumple una función específica dentro del análisis y la seguridad informática:
